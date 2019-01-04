@@ -1,6 +1,7 @@
 // import modules
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
+var roleBuilder = require('role.builder');
 
 module.exports.loop = function () {
     // check for memory entries of died creeps by iterating over Memory.creeps
@@ -25,13 +26,19 @@ module.exports.loop = function () {
         else if (creep.memory.role == 'upgrader') {
             roleUpgrader.run(creep);
         }
+        // if creep is upgrader, call upgrader script
+        else if (creep.memory.role == 'builder') {
+            roleBuilder.run(creep);
+        }
     }
 
     // goal: have 10 harvesters and as many upgraders as possible
-    var minimumNumberOfHarvesters = 10;
+    var minimumNumberOfHarvesters = 6;
+    var minimumNumberOfHarvesters = 2;
     // _.sum will count the number of properties in Game.creeps filtered by the
     //  arrow function, which checks for the creep being a harvester
     var numberOfHarvesters = _.sum(Game.creeps, (c) => c.memory.role == 'harvester');
+    var numberOfBuilders = _.sum(Game.creeps, (c) => c.memory.role == 'builder');
     var name = undefined;
 
     // if not enough harvesters
@@ -39,6 +46,13 @@ module.exports.loop = function () {
         // try to spawn one
         name = Game.spawns.Spawn1.createCreep([WORK,WORK,CARRY,MOVE], undefined,
             { role: 'harvester', working: false});
+    }
+    else if (numberOfBuilders < minimumNumberOfBuilders) {
+        // else try to spawn an upgrader
+        // small change from what you saw in the video: for upgraders it makes
+        //  more sense to have two move parts because they have to travel further
+        name = Game.spawns.Spawn1.createCreep([WORK,CARRY,MOVE,MOVE], undefined,
+            { role: 'builder', working: false});
     }
     else {
         // else try to spawn an upgrader
