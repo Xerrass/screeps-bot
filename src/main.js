@@ -1,5 +1,5 @@
 var roleHarvester = require('role.harvester');
-
+var roleUpgrader = require('role.upgrader');
 
 module.exports.loop = function () {
     // for every creep name in Game.creeps
@@ -7,7 +7,9 @@ module.exports.loop = function () {
 
         // get the creep object
         var creep = Game.creeps[name];
-        roleHarvester.run(creep);
-
+        if (creep.memory.role == 'harvester')
+          roleHarvester.run(creep);
+        else if (creep.memory.role == 'upgrader')
+          roleUpgrader.run(creep);
     }
 };
