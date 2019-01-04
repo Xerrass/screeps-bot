@@ -1,6 +1,5 @@
 module.exports = {
   run: function(creep) {
-    console.log(name + " is full: " + creep.memory.full);
 
     // if creep is bringing energy to the spawn but has no energy left
     if (creep.memory.full == true && creep.carry.energy == 0) {
