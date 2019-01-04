@@ -2,7 +2,7 @@ module.exports = {
     // a function to run the logic for this role
     run: function(creep) {
 
-        creep.say("Harvest");
+        creep.say("Builder");
         // if creep is bringing energy to the spawn but has no energy left
         if (creep.memory.working == true && creep.carry.energy == 0) {
             // switch state
@@ -17,7 +17,7 @@ module.exports = {
         // if creep is supposed to transfer energy to the spawn
         if (creep.memory.working == true) {
             // try to transfer energy, if the spawn is not in range
-            var constructionSite = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITE);
+            var constructionSite = creep.pos.findClosestByPath(FIND_MY_CONSTRUCTION_SITES);
             if (creep.build(constructionSite) == ERR_NOT_IN_RANGE) {
                 // move towards the spawn
                 creep.moveTo(constructionSite);
