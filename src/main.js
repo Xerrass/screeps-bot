@@ -72,15 +72,22 @@ module.exports.loop = function () {
     var rclpt = Game.spawns.Spawn1.room.controller.progressTotal;
     var rclpercent = rclp/rclpt*100;
 
+    var gclp = Game.gcl.progress;
+    var gclpt = Game.gcl.progressTotal;
+    var gclpercent = gclp/gclpt*100;
+
     if (Game.time % 25 == 0){
       console.log("---------------------------------------------------")
       console.log("----------------------Creeps-----------------------")
       console.log("Harvester Creeps: " + numberOfHarvesters)
       console.log("Builder Creeps  : " + numberOfBuilders)
       console.log("Upgrader Creeps : " + numberOfUpgraders)
-      console.log("---------------------RCL + GCL---------------------")
+      console.log("------------------------RCL------------------------")
       console.log("RCL             : " + Game.spawns.Spawn1.room.controller.level )
       console.log("RCL ENG         : " + rclp + "/" + rclpt + " - " + rclpercent.toFixed(2) + "%")
+      console.log("------------------------GCL------------------------")
+      console.log("GCL             : " + Game.gcl.level )
+      console.log("GCL ENG         : " + gclp + "/" + gclpt + " - " + gclpercent.toFixed(2) + "%")
       console.log("---------------------------------------------------")
     }
 
