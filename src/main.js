@@ -76,7 +76,7 @@ module.exports.loop = function () {
     var gclpt = Game.gcl.progressTotal;
     var gclpercent = gclp/gclpt*100;
 
-    if (Game.time % 25 == 0){
+    if (Game.time % 100 == 0){
       console.log("---------------------------------------------------")
       console.log("----------------------Creeps-----------------------")
       console.log("Harvester Creeps: " + numberOfHarvesters)
@@ -88,6 +88,10 @@ module.exports.loop = function () {
       console.log("------------------------GCL------------------------")
       console.log("GCL             : " + Game.gcl.level )
       console.log("GCL ENG         : " + gclp + "/" + Math.round(gclpt) + " - " + gclpercent.toFixed(2) + "%")
+      console.log("------------------------CPU------------------------")
+      console.log("CPU Usage       : " + Game.cpu.getUsed() )
+      console.log("CPU Limit       : " + Game.cpu.limit )
+      console.log("CPU Bucket      : " + Game.cpu.Bucket + "/10000")
       console.log("---------------------------------------------------")
     }
 
