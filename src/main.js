@@ -68,7 +68,9 @@ module.exports.loop = function () {
     if (!(name < 0)) {
         console.log("Spawned new " + Game.creeps[name].memory.role + " creep: " + name);
     }
-
+    var rclp = Game.spawns.Spawn1.room.controller.progress;
+    var rclpt = Game.spawns.Spawn1.room.controller.progressTotal;
+    var rclpercent = rclp/rclpt;
 
     if (Game.time % 25 == 0){
       console.log("---------------------------------------------------")
@@ -78,7 +80,7 @@ module.exports.loop = function () {
       console.log("Upgrader Creeps : " + numberOfUpgraders)
       console.log("---------------------RCL + GCL---------------------")
       console.log("RCL             : " + Game.spawns.Spawn1.room.controller.level)
-      console.log("RCL ENG         : " + Game.spawns.Spawn1.room.controller.progress + "/" + Game.spawns.Spawn1.room.controller.progressTotal)
+      console.log("RCL ENG         : " + rclp + "/" + rclpt + )
       console.log("---------------------------------------------------")
     }
 
