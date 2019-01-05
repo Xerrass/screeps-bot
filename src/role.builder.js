@@ -2,25 +2,25 @@ module.exports = {
     // a function to run the logic for this role
     run: function(creep) {
 
-        if (creep.memory.full)
+        if (creep.memory.working)
             creep.say("B - Build");
         else {
             creep.say("B - H");
         }
 
         // if creep is bringing energy to the spawn but has no energy left
-        if (creep.memory.full == true && creep.carry.energy == 0) {
+        if (creep.memory.working == true && creep.carry.energy == 0) {
             // switch state
-            creep.memory.full = false;
+            creep.memory.working = false;
         }
-        // if creep is harvesting energy but is full
-        else if (creep.memory.full == false && creep.carry.energy == creep.carryCapacity) {
+        // if creep is harvesting energy but is working
+        else if (creep.memory.working == false && creep.carry.energy == creep.carryCapacity) {
             // switch state
-            creep.memory.full = true;
+            creep.memory.working = true;
         }
 
         // if creep is supposed to transfer energy to the spawn
-        if (creep.memory.full == true) {
+        if (creep.memory.working == true) {
             // try to transfer energy, if the spawn is not in range
             var constructionSite = creep.pos.findClosestByPath(FIND_MY_CONSTRUCTION_SITES);
             if (creep.build(constructionSite) == ERR_NOT_IN_RANGE) {
