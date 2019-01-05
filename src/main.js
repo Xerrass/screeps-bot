@@ -80,7 +80,7 @@ module.exports.loop = function () {
       console.log("Upgrader Creeps : " + numberOfUpgraders)
       console.log("---------------------RCL + GCL---------------------")
       console.log("RCL             : " + Game.spawns.Spawn1.room.controller.level )
-      console.log("RCL ENG         : " + rclp + "/" + rclpt + " - " + rclpercent + "%")
+      console.log("RCL ENG         : " + rclp + "/" + rclpt + " - " + rclpercent.toFixed(2) + "%")
       console.log("---------------------------------------------------")
     }
 
