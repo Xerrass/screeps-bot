@@ -39,6 +39,7 @@ module.exports.loop = function () {
     //  arrow function, which checks for the creep being a harvester
     var numberOfHarvesters = _.sum(Game.creeps, (c) => c.memory.role == 'harvester');
     var numberOfBuilders = _.sum(Game.creeps, (c) => c.memory.role == 'builder');
+    var numberOfUpgraders = _.sum(Game.creeps, (c) => c.memory.role == 'upgrader');
     var name = undefined;
 
     // if not enough harvesters
@@ -65,6 +66,20 @@ module.exports.loop = function () {
     // print name to console if spawning was a success
     // name > 0 would not work since string > 0 returns false
     if (!(name < 0)) {
-        console.log("Spawned new" + Game.creeps[name].memory.role + " creep: " + name);
+        console.log("Spawned new " + Game.creeps[name].memory.role + " creep: " + name);
     }
+
+
+    if (Game.time % 25 == 0){
+      console.log("---------------------------------------------------")
+      console.log("----------------------Creeps-----------------------")
+      console.log("Harvester Creeps: " + numberOfHarvesters)
+      console.log("Builder Creeps  : " + numberOfBuilders)
+      console.log("Upgrader Creeps : " + numberOfUpgraders)
+      console.log("---------------------RCL + GCL---------------------")
+      console.log("RCL             : " + Game.spawns.Spawn1.room.controller.level)
+      console.log("RCL ENG         : " + Game.spawns.Spawn1.room.controller.progress + "/" + Game.spawns.Spawn1.room.controller.progressTotal)
+      console.log("---------------------------------------------------")
+    }
+
 };
