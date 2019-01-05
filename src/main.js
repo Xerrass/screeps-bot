@@ -91,7 +91,7 @@ module.exports.loop = function () {
       console.log("------------------------CPU------------------------")
       console.log("CPU Usage       : " + Game.cpu.getUsed() )
       console.log("CPU Limit       : " + Game.cpu.limit )
-      console.log("CPU Bucket      : " + Game.cpu.Bucket + "/10000")
+      console.log("CPU Bucket      : " + Game.cpu.bucket + "/10000")
       console.log("---------------------------------------------------")
     }
 
