@@ -70,7 +70,7 @@ module.exports.loop = function () {
     }
 
 
-    if (Game.time % 25 == 0){
+    if (true){ //Game.time % 25 == 0
       console.log("---------------------------------------------------")
       console.log("----------------------Creeps-----------------------")
       console.log("Harvester Creeps: " + numberOfHarvesters)
