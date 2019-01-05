@@ -70,7 +70,7 @@ module.exports.loop = function () {
     }
     var rclp = Game.spawns.Spawn1.room.controller.progress;
     var rclpt = Game.spawns.Spawn1.room.controller.progressTotal;
-    var rclpercent = rclp/rclpt;
+    var rclpercent = rclp/rclpt*100;
 
     if (Game.time % 25 == 0){
       console.log("---------------------------------------------------")
