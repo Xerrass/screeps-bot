@@ -87,7 +87,7 @@ module.exports.loop = function () {
       console.log("RCL ENG         : " + rclp + "/" + rclpt + " - " + rclpercent.toFixed(2) + "%")
       console.log("------------------------GCL------------------------")
       console.log("GCL             : " + Game.gcl.level )
-      console.log("GCL ENG         : " + gclp + "/" + gclpt + " - " + gclpercent.toFixed(2) + "%")
+      console.log("GCL ENG         : " + gclp + "/" + Math.round(gclpt) + " - " + gclpercent.toFixed(2) + "%")
       console.log("---------------------------------------------------")
     }
 
